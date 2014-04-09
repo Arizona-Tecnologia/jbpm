@@ -22,7 +22,7 @@
   <!-- major.minor.micro.Final -->
   <!-- For example: 1.2.3 without the suffix ".Final" corrupts the OSGi eclipse updatesite -->
   <!-- For example: 1.2.3.M2 corrupts the OSGi eclipse updatesite update order -->
-  <version>5.4.0.Final</version>
+  <version>5.4.1.Final</version>
 
   <name>jBPM multiproject</name>
   <description>jBPM: a Business Process Management (BPM) Suite</description>

@@ -22,8 +22,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.drools.definition.process.Node;
 import org.drools.definition.process.Process;
+import org.drools.process.core.Work;
 import org.drools.runtime.process.NodeInstance;
+import org.jboss.bpm.console.client.model.HumanTaskNodeRef;
 import org.jboss.bpm.console.client.model.ProcessDefinitionRef;
 import org.jboss.bpm.console.client.model.ProcessInstanceRef;
 import org.jboss.bpm.console.client.model.ProcessInstanceRef.RESULT;
@@ -31,6 +34,9 @@ import org.jboss.bpm.console.client.model.ProcessInstanceRef.STATE;
 import org.jbpm.process.audit.JPAProcessInstanceDbLog;
 import org.jbpm.process.audit.NodeInstanceLog;
 import org.jbpm.process.audit.ProcessInstanceLog;
+import org.jbpm.workflow.core.NodeContainer;
+import org.jbpm.workflow.core.WorkflowProcess;
+import org.jbpm.workflow.core.node.HumanTaskNode;
 
 public class ProcessManagement  extends SessionInitializer implements org.jboss.bpm.console.server.integration.ProcessManagement {
 
@@ -125,5 +131,32 @@ public class ProcessManagement  extends SessionInitializer implements org.jboss.
     public void endInstance(String instanceId, RESULT result) {
         CommandDelegate.abortProcessInstance(instanceId);
     }
+
+    /**
+     * Create a list of HumanTaskNode from de Process Definition id informed.
+     * @param processId the id of the process definition
+     * @return existing human task node for this process id, can be empty.
+     */
+    public List<HumanTaskNodeRef> getHumanTaskNodeListForProcess(String processId) {
+        List<HumanTaskNodeRef> humanTaskNodeList = new ArrayList<HumanTaskNodeRef>();
+        Process process = CommandDelegate.getProcess(processId);
+        if(process != null) {
+            WorkflowProcess workFlowProcess = (WorkflowProcess) process;
+            getHumanTaskListData(workFlowProcess, humanTaskNodeList, processId);
+        }
+
+        return humanTaskNodeList;
+    }
+
+    private void getHumanTaskListData(NodeContainer container, List<HumanTaskNodeRef> result, String processId) {
+        for (Node node: container.getNodes()) {
+            if (node instanceof HumanTaskNode) {
+                result.add(Transform.humanTaskNode((HumanTaskNode) node));
+           } else if (node instanceof NodeContainer) {
+                getHumanTaskListData((NodeContainer) node, result, processId);
+            }
+        }
+    }
+
 
 }
