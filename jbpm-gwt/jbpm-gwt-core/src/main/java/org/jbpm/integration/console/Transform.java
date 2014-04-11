@@ -131,17 +131,10 @@ public class Transform {
     public static HumanTaskNodeRef humanTaskNode(HumanTaskNode node) {
         Work workItem = node.getWork();
 
-        /** actors */
-        String actors = (String) workItem.getParameter("ActorId");
-        actors = actors == null? "":actors.trim();
-        String delimiter = actors.length()>0?",":"";
-        String groups = (String) workItem.getParameter("GroupId");
-        groups = groups == null ? "":groups.trim();
-        actors = actors + delimiter + groups;
-
         return new HumanTaskNodeRef().setId(node.getId()+"")
                 .setName(node.getName())
-                .setActors(actors)
+                .setActors((String) workItem.getParameter("ActorId"))
+                .setGroups((String) workItem.getParameter("GroupId"))
                 .setPriority((String) workItem.getParameter("Priority"))
                 .setTaskName((String) workItem.getParameter("TaskName"));
     }

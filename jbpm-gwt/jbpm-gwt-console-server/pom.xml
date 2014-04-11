@@ -34,18 +34,22 @@
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-gwt-core</artifactId>
+        <version>5.4.1.Final</version>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-gwt-graph</artifactId>
+        <version>5.4.1.Final</version>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-gwt-form</artifactId>
+        <version>5.4.1.Final</version>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-gwt-shared</artifactId>
+        <version>5.4.1.Final</version>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
