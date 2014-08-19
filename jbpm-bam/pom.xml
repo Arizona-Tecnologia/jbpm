@@ -85,7 +85,7 @@
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-persistence-jpa</artifactId>
-      <version>${project.version}</version>
+      <version>5.4.0.Final</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>

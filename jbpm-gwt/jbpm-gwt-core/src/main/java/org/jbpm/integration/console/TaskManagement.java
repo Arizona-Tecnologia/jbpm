@@ -16,14 +16,12 @@
 
 package org.jbpm.integration.console;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.security.Principal;
 import java.security.acl.Group;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -32,9 +30,10 @@ import java.util.Set;
 import javax.security.auth.Subject;
 import javax.security.jacc.PolicyContext;
 
+import org.drools.runtime.Environment;
 import org.jboss.bpm.console.client.model.TaskRef;
 import org.jbpm.integration.console.shared.PropertyLoader;
-import org.jbpm.task.AccessType;
+import org.jbpm.task.Content;
 import org.jbpm.task.Status;
 import org.jbpm.task.Task;
 import org.jbpm.task.TaskService;
@@ -192,5 +191,38 @@ public class TaskManagement extends SessionInitializer implements org.jboss.bpm.
         }
         return roles;
     }
+
+	public void updateTaskContent(long taskId, Map newData) {
+		
+		connect();
+		
+		Task task = service.getTask(taskId);
+				
+		long contentId = task.getTaskData().getDocumentContentId();
+		if (contentId != -1) {
+			
+			Environment env = StatefulKnowledgeSessionUtil.getStatefulKnowledgeSession().getEnvironment();
+			
+			Content content = service.getContent(contentId);
+            Object input = ContentMarshallerHelper.unmarshall(content.getContent(), env);
+            
+            Map mergedData = new HashMap();
+            if (input instanceof Map) {
+            	
+            	Map prevData = (Map) input;
+            	mergedData.putAll(prevData);
+        		mergedData.putAll(newData);
+            }
+            
+    		if (! mergedData.isEmpty()) {
+    		    
+    			ContentData contentData = ContentMarshallerHelper.marshal(mergedData, env);
+    		    Content newContent = new Content();
+    		    newContent.setContent(contentData.getContent());
+
+    		    service.setDocumentContent(taskId, newContent);
+    		}
+        }		
+	}
 
 }
