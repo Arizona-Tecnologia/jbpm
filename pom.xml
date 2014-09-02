@@ -29,7 +29,7 @@
   <url>http://www.jboss.org/jbpm/</url>
 
   <properties>
-    
+    <visto-jbpm-extensions.version>2.1.0-SNAPSHOT</visto-jbpm-extensions.version>
     <!--
      These are properties used in the database profiles. Some of them must be initialized
      empty so that Maven applies them via filtering to the resources. 
@@ -92,6 +92,11 @@
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>br.com.arizona</groupId>
+        <artifactId>visto-jbpm-extensions</artifactId>
+        <version>${visto-jbpm-extensions.version}</version>
+      </dependency>
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>

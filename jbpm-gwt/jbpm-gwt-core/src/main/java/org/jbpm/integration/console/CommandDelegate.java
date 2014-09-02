@@ -28,6 +28,8 @@ import org.drools.process.core.Work;
 import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.process.NodeInstance;
 import org.drools.runtime.process.ProcessInstance;
+import org.jbpm.persistence.processinstance.JPAProcessInstanceCommentDb;
+import org.jbpm.persistence.processinstance.ProcessInstanceComment;
 import org.jbpm.process.audit.JPAProcessInstanceDbLog;
 import org.jbpm.process.audit.ProcessInstanceLog;
 import org.jbpm.process.core.context.variable.VariableScope;
@@ -241,5 +243,16 @@ public class CommandDelegate {
         
         return activeNodesComposite;
     }
+
+    public static List<ProcessInstanceComment> getProcessInstanceComments(
+			String instanceId) {
+    	
+    	return JPAProcessInstanceCommentDb.findProcessInstancesComments(instanceId);
+	}
+
+	public static List<ProcessInstanceComment> getProcessInstanceComments(String instanceId, String group) {
+		
+		return JPAProcessInstanceCommentDb.findProcessInstancesComments(instanceId, group);
+	}
 
 }

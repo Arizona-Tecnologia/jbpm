@@ -49,6 +49,10 @@
 
   <dependencies>
     <dependency>
+      <groupId>br.com.arizona</groupId>
+      <artifactId>visto-jbpm-extensions</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-flow-builder</artifactId>
     </dependency>

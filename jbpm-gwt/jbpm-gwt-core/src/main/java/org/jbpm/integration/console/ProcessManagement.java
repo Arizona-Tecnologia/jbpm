@@ -18,21 +18,18 @@ package org.jbpm.integration.console;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.drools.definition.process.Node;
 import org.drools.definition.process.Process;
-import org.drools.process.core.Work;
 import org.drools.runtime.process.NodeInstance;
 import org.jboss.bpm.console.client.model.HumanTaskNodeRef;
 import org.jboss.bpm.console.client.model.ProcessDefinitionRef;
 import org.jboss.bpm.console.client.model.ProcessInstanceRef;
 import org.jboss.bpm.console.client.model.ProcessInstanceRef.RESULT;
 import org.jboss.bpm.console.client.model.ProcessInstanceRef.STATE;
-import org.jbpm.process.audit.JPAProcessInstanceDbLog;
-import org.jbpm.process.audit.NodeInstanceLog;
+import org.jbpm.persistence.processinstance.ProcessInstanceComment;
 import org.jbpm.process.audit.ProcessInstanceLog;
 import org.jbpm.workflow.core.NodeContainer;
 import org.jbpm.workflow.core.WorkflowProcess;
@@ -158,5 +155,14 @@ public class ProcessManagement  extends SessionInitializer implements org.jboss.
         }
     }
 
+	public List<ProcessInstanceComment> getProcessInstanceComments(
+			String instanceId) {
+		return CommandDelegate.getProcessInstanceComments(instanceId);
+	}
+
+	public List<ProcessInstanceComment> getProcessInstanceComments(String instanceId, String group) {
+		
+		return CommandDelegate.getProcessInstanceComments(instanceId, group);
+	}
 
 }
