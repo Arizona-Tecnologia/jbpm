@@ -245,14 +245,28 @@ public class CommandDelegate {
     }
 
     public static List<ProcessInstanceComment> getProcessInstanceComments(
-			String instanceId) {
+			Long instanceId) {
     	
     	return JPAProcessInstanceCommentDb.findProcessInstancesComments(instanceId);
 	}
 
-	public static List<ProcessInstanceComment> getProcessInstanceComments(String instanceId, String group) {
+	public static List<ProcessInstanceComment> getProcessInstanceComments(Long instanceId, String channel) {
 		
-		return JPAProcessInstanceCommentDb.findProcessInstancesComments(instanceId, group);
+		return JPAProcessInstanceCommentDb.findProcessInstancesComments(instanceId, channel);
 	}
 
+	public static ProcessInstanceComment createProcessInstanceComment(ProcessInstanceComment comment) {
+
+		return JPAProcessInstanceCommentDb.create(comment);
+	}
+
+	public static ProcessInstanceComment updateProcessInstanceComment(ProcessInstanceComment comment) {
+
+		return JPAProcessInstanceCommentDb.update(comment);
+	}
+
+	public static void deleteProcessInstanceComment(ProcessInstanceComment comment) {
+
+		JPAProcessInstanceCommentDb.delete(comment);
+	}
 }

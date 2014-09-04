@@ -156,13 +156,28 @@ public class ProcessManagement  extends SessionInitializer implements org.jboss.
     }
 
 	public List<ProcessInstanceComment> getProcessInstanceComments(
-			String instanceId) {
+			Long instanceId) {
 		return CommandDelegate.getProcessInstanceComments(instanceId);
 	}
 
-	public List<ProcessInstanceComment> getProcessInstanceComments(String instanceId, String group) {
+	public List<ProcessInstanceComment> getProcessInstanceComments(Long instanceId, String channel) {
 		
-		return CommandDelegate.getProcessInstanceComments(instanceId, group);
+		return CommandDelegate.getProcessInstanceComments(instanceId, channel);
+	}
+
+	public ProcessInstanceComment createProcessInstanceComment(ProcessInstanceComment comment) {
+		
+		return CommandDelegate.createProcessInstanceComment(comment);
+	}
+
+	public ProcessInstanceComment updateProcessInstanceComment(ProcessInstanceComment comment) {
+		
+		return CommandDelegate.updateProcessInstanceComment(comment);
+	}
+
+	public void deleteProcessInstanceComment(ProcessInstanceComment comment) {
+		
+		CommandDelegate.deleteProcessInstanceComment(comment);
 	}
 
 }
