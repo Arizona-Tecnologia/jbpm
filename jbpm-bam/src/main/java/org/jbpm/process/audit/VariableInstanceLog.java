@@ -105,9 +105,6 @@ public class VariableInstanceLog implements Serializable {
 	}
 
 	public void setValue(String value) {
-		if (value != null && value.length() > 2000) {
-			value = value.substring(0, 2000);
-		}
 		this.value = value;
 	}
 
