@@ -7,9 +7,60 @@ new SessionTemplate().{
                   "drools.processSignalManagerFactory" : "org.jbpm.persistence.processinstance.JPASignalManagerFactory"  
                     ],
                     
-    workItemHandlers = ["Human Task" : "new org.jbpm.process.workitem.wsht.AsyncHornetQHTWorkItemHandler(\"jbpmConsoleHTHandler\", taskClient, ksession, org.jbpm.task.utils.OnErrorAction.LOG)",
-                        "Service Task" : "new org.jbpm.process.workitem.bpmn2.ServiceTaskHandler(ksession)"],
-                        
+workItemHandlers = [
+	"Human Task" : "new org.jbpm.process.workitem.wsht.AsyncHornetQHTWorkItemHandler(\"jbpmConsoleHTHandler\", taskClient, ksession, org.jbpm.task.utils.OnErrorAction.LOG)",
+	"Service Task" : "new org.jbpm.process.workitem.bpmn2.ServiceTaskHandler(ksession)",
+
+	"ApproveAssetv1" : "new br.com.arizona.bpm.workItem.cmis.v1.ApproveAssetWorkItemHandler()",
+	"CreateHistoryv1" : "new br.com.arizona.bpm.workItem.cmis.v1.CreateHistoryJSONWorkItemHandler()",
+	"CreateRelationshipJSONv1" : "new br.com.arizona.bpm.workItem.cmis.v1.CreateRelationshipJSONWorkItemHandler()",
+	"CreateRelationshipv1" : "new br.com.arizona.bpm.workItem.cmis.v1.CreateRelationshipWorkItemHandler()",
+	"DeleteAssetJSONv1" : "new br.com.arizona.bpm.workItem.cmis.v1.DeleteAssetJSONWorkItemHandler()",
+	"DeleteAssetv1" : "new br.com.arizona.bpm.workItem.cmis.v1.DeleteAssetWorkItemHandler()",
+	"GetAssetMetadatav1" : "new br.com.arizona.bpm.workItem.cmis.v1.GetAssetMetadataWorkItemHandler()",
+	"GetThumbsAndPreviewsv1" : "new br.com.arizona.bpm.workItem.cmis.v1.GetThumbsAndPreviewsWorkItemHandler()",
+	"RenameAssetv1" : "new br.com.arizona.bpm.workItem.cmis.v1.RenameAssetWorkItemHandler()",
+	"ReproveAssetv1" : "new br.com.arizona.bpm.workItem.cmis.v1.ReproveAssetWorkItemHandler()",
+	"UpdateAssetMetadataJSONv1" : "new br.com.arizona.bpm.workItem.cmis.v1.UpdateAssetMetadataJSONWorkItemHandler()",
+	"UpdateAssetMetadatav1" : "new br.com.arizona.bpm.workItem.cmis.v1.UpdateAssetMetadataWorkItemHandler()",
+
+	"ApproveAssetv2" : "new br.com.arizona.bpm.workItem.cmis.v2.ApproveAssetWorkItemHandler()",
+	"CreateRelationshipv2" : "new br.com.arizona.bpm.workItem.cmis.v2.CreateRelationshipWorkItemHandler()",
+	"DeleteAssetv2" : "new br.com.arizona.bpm.workItem.cmis.v2.DeleteAssetWorkItemHandler()",
+	"RenameAssetv2" : "new br.com.arizona.bpm.workItem.cmis.v2.RenameAssetWorkItemHandler()",
+	"ReproveAssetv2" : "new br.com.arizona.bpm.workItem.cmis.v2.ReproveAssetWorkItemHandler()",
+	"UpdateAssetMetadatav2" : "new br.com.arizona.bpm.workItem.cmis.v2.UpdateAssetMetadataWorkItemHandler()",
+
+	"BuildClientApprovalPagev1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.BuildClientApprovalPageWorkItemHandler()",
+	"BuildMetadataEditorv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.BuildMetadataEditorWorkItemHandler()",
+	"CreateJSONAssetListv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.CreateJSONAssetListWorkItemHandler()",
+	"DownloadSolicitationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.DownloadSolicitationWorkItemHandler()",
+	"ListBusinessFilev1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.ListBusinessFileWorkItemHandler()",
+	"ListGroupv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.ListAllGroupsWorkItemHandler()",
+	"SendNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.SendNotificationWorkItemHandler()",
+
+	"SendAssetApprovedNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyAssetApprovedWorkItemHandler()",
+	"SendAssetPublishedNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyAssetDeliveredPublishedWorkItemHandler()",
+	"SendAssetReprovedNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyAssetReprovedWorkItemHandler()",
+	"SendAssetReviewedNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyAssetReviewedWorkItemHandler()",
+	"SendAssetSentToStepNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyAssetSentToStepWorkItemHandler()",
+	"SendChangeSolicitationNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyAssetChangeSolicitationWorkItemHandler()",
+	"SendDownloadSolicitationApprovedNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyDownloadSolicitationApprovedWorkItemHandler()",
+	"SendDownloadSolicitationReprovedNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyDownloadSolicitationReprovedWorkItemHandler()",
+	"SendExpiredSLANotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyExpiredSLAWorkItemHandler()",
+	"SendNewAssetNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyNewAssetWorkItemHandler()",
+
+	"ListBusinessFilev2" : "new br.com.arizona.bpm.workItem.visto.dam.v2.ListBusinessFileWorkItemHandler()",
+	"ListGroupv2" : "new br.com.arizona.bpm.workItem.visto.dam.v2.ListAllGroupsWorkItemHandler()" ,
+
+	"GetProcessInstanceIdv1" : "new br.com.arizona.bpm.workItem.util.v1.GetProcessInstanceIdWorkItemHandler()" ,
+	"UpdateProcessListSetv1" : "new br.com.arizona.bpm.workItem.util.v1.UpdateProcessListSetWorkItemHandler()" ,
+	"UpdateProcessParameterv1" : "new br.com.arizona.bpm.workItem.util.v1.UpdateProcessParameterWorkItemHandler()",
+	"CleanUploadParametersv1" : "new br.com.arizona.bpm.workItem.util.upload.v1.CleanUploadParameterstWorkItemHandler()" ,
+	"VerifyParameterAfterUploadv1" : "new br.com.arizona.bpm.workItem.util.upload.v1.VerifyParameterAfterUploadWorkItemHandler()"
+
+    ],
+                     
     eventListeners = ["new org.jbpm.process.audit.JPAWorkingMemoryDbLogger(ksession)",
                       "new org.jbpm.integration.console.listeners.TriggerRulesEventListener(ksession)"  ]
 };

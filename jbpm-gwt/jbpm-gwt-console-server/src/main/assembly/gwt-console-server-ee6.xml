@@ -25,6 +25,15 @@
 
         <!-- jars -->
         <exclude>WEB-INF/lib/netty-*.jar</exclude>
+        <exclude>WEB-INF/lib/jboss*.jar</exclude>
+        <exclude>WEB-INF/lib/*sources.jar</exclude>
+        <exclude>WEB-INF/lib/guava-r06.jar</exclude>
+        <exclude>WEB-INF/lib/jackson-core-asl-1.5.5.jar</exclude>
+        <exclude>WEB-INF/lib/jackson-mapper-asl-1.5.5.jar</exclude>
+        <exclude>WEB-INF/lib/jsr181-api-1.0-MR1.jar</exclude>
+        <exclude>WEB-INF/lib/mail-1.4.4.jar</exclude>
+        <exclude>WEB-INF/lib/google-collections-1.0.jar</exclude>
+
 
         <!-- hibernate 3 transitive deps -->
         <exclude>WEB-INF/lib/hibernate*.jar</exclude>
@@ -61,6 +70,14 @@
       <source>src/main/assembly/resources/gwt-console-server-persistence-JPA2.xml</source>
       <destName>WEB-INF/classes/META-INF/persistence.xml</destName>
     </file>
+      <file>
+          <source>src/main/assembly/resources/ProcessInstanceInfoMapping-JPA2.xml</source>
+          <destName>WEB-INF/classes/META-INF/ProcessInstanceInfoMapping.xml</destName>
+      </file>
+      <file>
+          <source>src/main/assembly/resources/jboss-deployment-structure.xml</source>
+          <destName>META-INF/jboss-deployment-structure.xml</destName>
+      </file>
   </files>
 
 </assembly>
