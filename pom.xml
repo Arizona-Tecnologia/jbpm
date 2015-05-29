@@ -22,14 +22,15 @@
   <!-- major.minor.micro.Final -->
   <!-- For example: 1.2.3 without the suffix ".Final" corrupts the OSGi eclipse updatesite -->
   <!-- For example: 1.2.3.M2 corrupts the OSGi eclipse updatesite update order -->
-  <version>5.4.1.Final</version>
+  <version>4.2.1-RELEASE</version>
 
   <name>jBPM multiproject</name>
   <description>jBPM: a Business Process Management (BPM) Suite</description>
   <url>http://www.jboss.org/jbpm/</url>
 
   <properties>
-    <visto-jbpm-extensions.version>3.1.0-RELEASE</visto-jbpm-extensions.version>
+    <version-all>4.2.1-RELEASE</version-all>
+    <visto-jbpm-extensions.version>4.2.0-RELEASE</visto-jbpm-extensions.version>
     <!--
      These are properties used in the database profiles. Some of them must be initialized
      empty so that Maven applies them via filtering to the resources. 
@@ -47,30 +48,24 @@
     <maven.jdbc.url>jdbc:h2:</maven.jdbc.url>
     <maven.jdbc.schema>public</maven.jdbc.schema>
   </properties>
+    <scm>
+        <url>http://github.com/Arizona-Tecnologia/jbpm/</url>
+        <connection>scm:git:git@github.com/Arizona-Tecnologia/jbpm.git</connection>
+        <developerConnection>scm:git:git@github.com/Arizona-Tecnologia/jbpm.git</developerConnection>
+    </scm>
 
-  <repositories>
-    <!-- Bootstrap repository to locate the parent pom when the parent pom has not been build locally. -->
-    <repository>
-      <id>jboss-public-repository-group</id>
-      <name>JBoss Public Repository Group</name>
-      <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-      <layout>default</layout>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-      </snapshots>
-    </repository>
-  </repositories>
+    <distributionManagement>
+        <repository>
+            <id>deployment</id>
+            <url>http://nexus.arizona.com.br/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>deployment</id>
+            <url>http://nexus.arizona.com.br/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
-  <scm>
-    <connection>scm:git:git@github.com:droolsjbpm/jbpm.git</connection>
-    <developerConnection>scm:git:git@github.com:droolsjbpm/jbpm.git</developerConnection>
-    <url>https://github.com/droolsjbpm/jbpm</url>
-  </scm>
+
   <issueManagement>
     <system>jira</system>
     <url>https://issues.jboss.org/browse/JBPM</url>
@@ -150,18 +145,7 @@
       </modules>
     </profile>
 
-    <profile>
-      <id>database</id>
-      <dependencies>
-        <dependency>
-           <groupId>${maven.jdbc.driver.group}</groupId>
-           <artifactId>${maven.jdbc.driver.artifact}</artifactId>
-           <version>${maven.jdbc.driver.version}</version>
-           <scope>test</scope>
-        </dependency>  
-      </dependencies>
-    </profile>
-    
+
     <profile>
       <id>hibernate-4</id>
       <dependencyManagement>
@@ -193,66 +177,6 @@
        </dependencies>
      </dependencyManagement>
       
-     <build>
-        <plugins>
-          <plugin>
-            <groupId>com.google.code.maven-replacer-plugin</groupId>
-            <artifactId>maven-replacer-plugin</artifactId>
-            <version>1.4.1</version>
-            <executions>
-              <execution>
-                <id>jpa2-xml-config</id>
-                <phase>process-test-resources</phase>
-                <goals>
-                  <goal>replace</goal>
-                </goals>
-                <configuration>
-                  <includes>
-                    <include>target/*classes/META-INF/JBPMorm.xml</include>
-                    <include>target/*classes/META-INF/persistence.xml</include>
-                  </includes>
-                  <replacements>
-                    <!-- persistence.xml: version -->
-                    <replacement>
-                      <token>(persistence version)="1.0"</token>
-                      <value>$1="2.0"</value>
-                    </replacement>
-                    <!-- persistence.xml: schemaLocation's -->
-                    <replacement>
-                      <token>(http://java.sun.com/xml/ns/persistence/persistence)_1(_0.xsd)</token>
-                      <value>$1_2$2</value>
-                    </replacement>
-                    <replacement>
-                      <token>(http://java.sun.com/xml/ns/persistence/orm)_1(_0.xsd)</token>
-                      <value>$1_2$2</value>
-                    </replacement>
-                    <!-- persistence.xml: BTM tx lookup --> 
-                    <replacement>
-                      <token>(&lt;property name=)"hibernate.transaction.manager_lookup_class"( value=)"org.hibernate.transaction.BTMTransactionManagerLookup"( */&gt;)</token>
-                      <value>$1"hibernate.transaction.jta.platform"$2"org.hibernate.service.jta.platform.internal.BitronixJtaPlatform"$3</value>
-                    </replacement>
-                    <!-- JBPMorm.xml: for the ProcessInstanceInfo.hbm.xml -->
-                    <replacement>
-                      <token>(mapping-file&gt;META-INF/ProcessInstanceInfo.hbm.xml&lt;/mapping-file)</token>
-                      <value>!-- $1 --</value>
-                    </replacement>
-                    <!-- JBPMorm.xml: schema's, version -->
-                    <replacement>
-                      <token>(xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm) orm_1_0.(xsd"\n *version=)"1.0"</token>
-                      <value>$1 orm_2_0.$2"2.0"</value>
-                    </replacement>
-                    <!-- JBPMorm.xml: mapping -->
-                    <replacement>
-                      <token>(&lt;!--|):JPA2 REMOVE ME:(--&gt;|)</token>
-                      <value></value>
-                    </replacement>
-                  </replacements>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
     </profile>
   </profiles>
     
