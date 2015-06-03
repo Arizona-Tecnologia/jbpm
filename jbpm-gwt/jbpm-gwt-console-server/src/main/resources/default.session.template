@@ -51,6 +51,8 @@ workItemHandlers = [
 	"SendNewAssetNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyNewAssetWorkItemHandler()",
 
 	"ListBusinessFilev2" : "new br.com.arizona.bpm.workItem.visto.dam.v2.ListBusinessFileWorkItemHandler()",
+    "ApproveAssetv3" : "new br.com.arizona.bpm.workItem.visto.dam.v3.ApproveAssetWorkItemHandler()",
+    "DisapproveAssetv3" : "new br.com.arizona.bpm.workItem.visto.dam.v3.DisapproveAssetWorkItemHandler()",
 	"ListGroupv2" : "new br.com.arizona.bpm.workItem.visto.dam.v2.ListAllGroupsWorkItemHandler()" ,
 
 	"GetProcessInstanceIdv1" : "new br.com.arizona.bpm.workItem.util.v1.GetProcessInstanceIdWorkItemHandler()" ,
