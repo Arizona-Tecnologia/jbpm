@@ -11,7 +11,6 @@
   </parent>
 
   <artifactId>jbpm-gwt-console-server</artifactId>
-
   <packaging>war</packaging>
 
   <name>jBPM Console server WAR</name>
@@ -30,7 +29,7 @@
     <dependency>
       <groupId>org.jboss.bpm</groupId>
       <artifactId>gwt-console-server-integration</artifactId>
-      <version>4.2.1-RELEASE</version>
+      <version>3.2.0-RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
@@ -84,22 +83,19 @@
   </dependencies>
   
   <build>
-      <finalName>jbpm-gwt-console-server</finalName>
     <pluginManagement>
      <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
             <configuration>
-                <outputFileNameMapping>no-version</outputFileNameMapping>
                 <archive>
                     <manifestEntries>
                         <Dependencies>org.hornetq</Dependencies>
                     </manifestEntries>
                 </archive>
                <!-- exclude old codec version from gwt-console-server -->
-               <dependentWarExcludes>WEB-INF/lib/commons-codec-1.3.jar,WEB-INF/lib/mvel2-2.0.18-RC4.jar,META-INF/*.SF,META-INF/*.RSA</dependentWarExcludes>
-
+               <dependentWarExcludes>WEB-INF/lib/commons-codec-1.3.jar,WEB-INF/lib/mvel2-2.0.18-RC4.jar,META-INF/*.SF,META-INF/*.RSA</dependentWarExcludes>   
             </configuration>
           </plugin>
        </plugins>
@@ -119,7 +115,7 @@
             <configuration>
               <target>
                 <unzip
-                  src="${project.build.directory}/${project.artifactId}.war"
+                  src="${project.build.directory}/${project.artifactId}-${project.version}.war"
                   dest="${project.build.directory}/upacked-war" />
               </target>
             </configuration>
@@ -131,7 +127,6 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-
         <artifactId>maven-assembly-plugin</artifactId>
         <executions>
           <execution>
@@ -141,9 +136,10 @@
               <goal>single</goal>
             </goals>
             <configuration>
-              <finalName>jbpm-gwt-console-server</finalName>
+                <finalName>jbpm-gwt-console-server</finalName>
                 <appendAssemblyId>false</appendAssemblyId>
-              <descriptors>
+
+                <descriptors>
                 <descriptor>src/main/assembly/gwt-console-server-ee6.xml</descriptor>
               </descriptors>
               <archive>
@@ -155,7 +151,6 @@
           </execution>
         </executions>
       </plugin>
-
     </plugins>
   </build>
 </project>
