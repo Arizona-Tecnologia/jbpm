@@ -7,7 +7,7 @@
   <parent>
     <groupId>org.jbpm</groupId>
     <artifactId>jbpm-gwt</artifactId>
-    <version>BP-7-SNAPSHOT</version>
+    <version>4.2.2-RELEASE</version>
   </parent>
 
   <artifactId>jbpm-gwt-console-server</artifactId>
@@ -19,7 +19,7 @@
     <dependency>
       <groupId>org.jboss.bpm</groupId>
       <artifactId>gwt-console-server-jbpm</artifactId>
-      <version>BP-7-SNAPSHOT</version>
+      <version>4.2.2-RELEASE</version>
       <type>war</type>
     </dependency>
     <dependency>
@@ -29,27 +29,27 @@
     <dependency>
       <groupId>org.jboss.bpm</groupId>
       <artifactId>gwt-console-server-integration</artifactId>
-      <version>BP-7-SNAPSHOT</version>
+      <version>4.2.2-RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-gwt-core</artifactId>
-        <version>BP-7-SNAPSHOT</version>
+        <version>4.2.2-RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-gwt-graph</artifactId>
-        <version>BP-7-SNAPSHOT</version>
+        <version>4.2.2-RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-gwt-form</artifactId>
-        <version>BP-7-SNAPSHOT</version>
+        <version>4.2.2-RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-gwt-shared</artifactId>
-        <version>BP-7-SNAPSHOT</version>
+        <version>4.2.2-RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>

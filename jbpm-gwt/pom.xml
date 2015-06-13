@@ -7,7 +7,7 @@
   <parent>
     <groupId>org.jbpm</groupId>
     <artifactId>jbpm</artifactId>
-    <version>BP-7-SNAPSHOT</version>
+    <version>4.2.2-RELEASE</version>
   </parent>
 
   <artifactId>jbpm-gwt</artifactId>

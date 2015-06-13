@@ -24,3 +24,6 @@ bitronix-default-config.properties
 
 # modules that don't exist in this branch
 /jbpm-human-task-war/
+
+*.jar
+*.info
