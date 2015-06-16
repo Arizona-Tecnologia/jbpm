@@ -17,7 +17,6 @@
       <directory>${project.build.directory}/upacked-war</directory>
       <outputDirectory>/</outputDirectory>
       <excludes>
-        <exclude>WEB-INF/classes/META-INF/persistence.xml</exclude>
 
         <!-- possible signature info -->
         <exclude>META-INF/*.SF</exclude>
@@ -66,18 +65,6 @@
     </fileSet>
   </fileSets>
   <files>
-    <file>
-      <source>src/main/assembly/resources/gwt-console-server-persistence-JPA2.xml</source>
-      <destName>WEB-INF/classes/META-INF/persistence.xml</destName>
-    </file>
-      <file>
-          <source>src/main/assembly/resources/ProcessInstanceInfoMapping-JPA2.xml</source>
-          <destName>WEB-INF/classes/META-INF/ProcessInstanceInfoMapping.xml</destName>
-      </file>
-      <file>
-          <source>src/main/assembly/resources/jboss-deployment-structure.xml</source>
-          <destName>META-INF/jboss-deployment-structure.xml</destName>
-      </file>
   </files>
 
 </assembly>
