@@ -38,6 +38,7 @@ workItemHandlers = [
 	"ListBusinessFilev1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.ListBusinessFileWorkItemHandler()",
 	"ListGroupv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.ListAllGroupsWorkItemHandler()",
 	"SendNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.SendNotificationWorkItemHandler()",
+	"SendEmailv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.SendEmailWorkItemHandler()",
 
 	"SendAssetApprovedNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyAssetApprovedWorkItemHandler()",
 	"SendAssetPublishedNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyAssetDeliveredPublishedWorkItemHandler()",
