@@ -19,7 +19,7 @@ workItemHandlers = [
 	"DeleteAssetv1" : "new br.com.arizona.bpm.workItem.cmis.v1.DeleteAssetWorkItemHandler()",
 	"GetAssetMetadatav1" : "new br.com.arizona.bpm.workItem.cmis.v1.GetAssetMetadataWorkItemHandler()",
 	"GetThumbsAndPreviewsv1" : "new br.com.arizona.bpm.workItem.cmis.v1.GetThumbsAndPreviewsWorkItemHandler()",
-	"RenameAssetv1" : "new br.com.arizona.bpm.workItem.cmis.v1.RenameAssetWorkItemHandler()",
+	"RenameAssetv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.RenameAssetWorkItemHandler()",
 	"ReproveAssetv1" : "new br.com.arizona.bpm.workItem.cmis.v1.ReproveAssetWorkItemHandler()",
 	"UpdateAssetMetadataJSONv1" : "new br.com.arizona.bpm.workItem.cmis.v1.UpdateAssetMetadataJSONWorkItemHandler()",
 	"UpdateAssetMetadatav1" : "new br.com.arizona.bpm.workItem.cmis.v1.UpdateAssetMetadataWorkItemHandler()",
@@ -27,7 +27,6 @@ workItemHandlers = [
 	"ApproveAssetv2" : "new br.com.arizona.bpm.workItem.cmis.v2.ApproveAssetWorkItemHandler()",
 	"CreateRelationshipv2" : "new br.com.arizona.bpm.workItem.cmis.v2.CreateRelationshipWorkItemHandler()",
 	"DeleteAssetv2" : "new br.com.arizona.bpm.workItem.cmis.v2.DeleteAssetWorkItemHandler()",
-	"RenameAssetv2" : "new br.com.arizona.bpm.workItem.cmis.v2.RenameAssetWorkItemHandler()",
 	"ReproveAssetv2" : "new br.com.arizona.bpm.workItem.cmis.v2.ReproveAssetWorkItemHandler()",
 	"UpdateAssetMetadatav2" : "new br.com.arizona.bpm.workItem.cmis.v2.UpdateAssetMetadataWorkItemHandler()",
 
