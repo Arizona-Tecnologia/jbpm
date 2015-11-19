@@ -7,11 +7,11 @@
   <parent>
     <groupId>org.jbpm</groupId>
     <artifactId>jbpm-gwt</artifactId>
-    <version>4.2.11-SNAPSHOT</version>
+    <version>4.2.11-RELEASE</version>
   </parent>
 
   <artifactId>jbpm-gwt-core</artifactId>
-    <version>4.2.11-SNAPSHOT</version>
+    <version>4.2.11-RELEASE</version>
 
   <name>jBPM GWT Console Core</name>
 
@@ -85,7 +85,7 @@
     <dependency>
       <groupId>org.jboss.bpm</groupId>
       <artifactId>gwt-console-server-integration</artifactId>
-      <version>4.2.11-SNAPSHOT</version>
+      <version>4.2.11-RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.jboss.bpm</groupId>
