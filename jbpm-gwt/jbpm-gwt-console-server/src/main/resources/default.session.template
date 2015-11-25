@@ -59,8 +59,8 @@ workItemHandlers = [
 	"UpdateProcessListSetv1" : "new br.com.arizona.bpm.workItem.util.v1.UpdateProcessListSetWorkItemHandler()" ,
 	"UpdateProcessParameterv1" : "new br.com.arizona.bpm.workItem.util.v1.UpdateProcessParameterWorkItemHandler()",
 	"CleanUploadParametersv1" : "new br.com.arizona.bpm.workItem.util.upload.v1.CleanUploadParameterstWorkItemHandler()" ,
-	"VerifyParameterAfterUploadv1" : "new br.com.arizona.bpm.workItem.util.upload.v1.VerifyParameterAfterUploadWorkItemHandler()"
-
+	"VerifyParameterAfterUploadv1" : "new br.com.arizona.bpm.workItem.util.upload.v1.VerifyParameterAfterUploadWorkItemHandler()",
+    "BusinessCalendarv1" : "new br.com.arizona.bpm.workItem.util.v1.BusinessCalendarWorkItemHandler()"
     ],
 
     eventListeners = ["new org.jbpm.process.audit.JPAWorkingMemoryDbLogger(ksession)",
