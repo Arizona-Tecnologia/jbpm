@@ -39,6 +39,7 @@ workItemHandlers = [
 	"SendNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.SendNotificationWorkItemHandler()",
   "SendEmailv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.SendEmailWorkItemHandler()",
 
+	"VerifyAssetReadyv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.VerifyAssetReadyWorkItemHandler()",
 	"SendAssetApprovedNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyAssetApprovedWorkItemHandler()",
 	"SendAssetPublishedNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyAssetDeliveredPublishedWorkItemHandler()",
 	"SendAssetReprovedNotificationv1" : "new br.com.arizona.bpm.workItem.visto.dam.v1.NotifyAssetReprovedWorkItemHandler()",
